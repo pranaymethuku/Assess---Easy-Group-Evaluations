@@ -1,0 +1,15 @@
+<% if @groups.empty? %>
+  <h3 class="empty text-center"> You are in no group yet! </h3>
+<% else %>
+  <ul>
+    <% @groups.each do |group| %>
+    <li>
+      <h5><%= link_to group.name, group_students_path(group), class: 'group' %></h5>
+      <%= link_to 'Fill Evaluation', fill_student_evaluation_path(group),
+        class: 'btn-sm btn-3' %>
+      <%= link_to 'Show Evaluations', group_evaluations_path(group),
+        class: 'btn-sm btn-3' %>
+    </li>
+  <% end %>
+  </ul>
+<% end %>

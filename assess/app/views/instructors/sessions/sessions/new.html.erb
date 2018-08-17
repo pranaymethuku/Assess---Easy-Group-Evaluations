@@ -1,0 +1,35 @@
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+<div class="col-md-4 col-md-offset-4 text-center">
+  <h2>Instructor Log in</h2>
+  <div class="row">
+    <div class="field">
+      <%= f.label :email %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="field">
+      <%= f.label :password %>
+      <%= f.password_field :password, autocomplete: "off" %>
+    </div>
+  </div>
+
+  <div class="row">
+    <% if devise_mapping.rememberable? -%>
+      <div class="field">
+        <%= f.check_box :remember_me %>
+        <%= f.label :remember_me %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="row">
+    <div class="actions">
+      <%= f.submit "Log in" %>
+    </div>
+  </div>
+<% end %>
+
+<%= render "instructors/shared/links" %>

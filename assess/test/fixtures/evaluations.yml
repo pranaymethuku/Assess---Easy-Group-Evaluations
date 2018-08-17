@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date_completed: 2018-07-23
+  contribution: MyText
+  team_contribution: MyText
+  managers: MyText
+  manager_performance: MyText
+  outstanding_participation: MyText
+  poor_participation: MyText
+  other: MyText
+
+two:
+  date_completed: 2018-07-23
+  contribution: MyText
+  team_contribution: MyText
+  managers: MyText
+  manager_performance: MyText
+  outstanding_participation: MyText
+  poor_participation: MyText
+  other: MyText

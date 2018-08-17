@@ -1,0 +1,38 @@
+<%= form_with(url: create_instructor_class_path, local: true) do |f| %>
+  <% if section.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(section.errors.count, "error") %> prohibited this class from being saved:</h2>
+
+      <ul>
+      <% section.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="field">
+      <%= f.label :dept %>
+      <%= f.text_field :dept, autofocus: true, autocomplete: "on" %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="field">
+      <%= f.label :number %>
+      <%= f.text_field :number, autofocus: true, autocomplete: "off" %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="field">
+      <%= f.label :name %>
+      <%= f.text_field :name, autofocus: true, autocomplete: "off" %>
+    </div>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

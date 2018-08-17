@@ -1,0 +1,57 @@
+<p id="notice"><%= notice %></p>
+
+<% student = Student.find_by id: @evaluation.student_id %>
+
+<div class="evaluation">
+  <h3> <%= student.first_name %> <%= student.last_name %> - Self & Peer Evaluation For <%= @evaluation.purpose %></h3>
+  <hr>
+
+  <h5>
+    Date completed:
+  </h5>
+  <p> <%= @evaluation.date_completed %> </p>
+
+  <h5>
+    Purpose:
+  </h5>
+  <%= simple_format(@evaluation.purpose) %>
+
+  <h5>
+    Contribution:
+  </h5>
+  <%= simple_format(@evaluation.contribution) %>
+
+  <h5>
+    Team contribution:
+  </h5>
+  <%= simple_format(@evaluation.team_contribution) %>
+
+  <h5>
+    Managers:
+  </h5>
+  <%= simple_format(@evaluation.managers) %>
+
+  <h5>
+    Manager performance:
+  </h5>
+  <%= simple_format(@evaluation.manager_performance) %>
+
+  <h5>
+    Outstanding participation:
+  </h5>
+  <%= simple_format(@evaluation.outstanding_participation) %>
+
+  <h5>
+    Poor participation:
+  </h5>
+  <%= simple_format(@evaluation.poor_participation) %>
+
+  <h5>
+    Other:
+  </h5>
+  <%= simple_format(@evaluation.other) %>
+  <% if student_signed_in? %>
+    <%= link_to 'Back', student_dashboard_path %>
+  <% elsif instructor_signed_in? %>
+    <%= link_to 'Back', instructor_dashboard_path %>
+  <% end %>

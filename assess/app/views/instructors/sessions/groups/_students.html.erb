@@ -1,0 +1,23 @@
+<%= form_with(url: link_group_students_path(group), local: true) do |f| %>
+  <% if group.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(group.errors.count, "error") %> prohibited these students from being linked:</h2>
+
+      <ul>
+      <% group.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :student_emails, "Add all emails of students (who already have an Assess acount) 
+    you want to link to the group separated by white space." %><br/>
+    <%= f.text_area :student_emails, autofocus: true, autocomplete: "off" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

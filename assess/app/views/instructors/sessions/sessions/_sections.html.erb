@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2 dashboard_content">
+      <h3 class="button-align">Classes</h3>
+      <%= link_to 'Create Class', new_instructor_class_path, class: 'btn btn-2 pull-right' %>
+      <%= link_to 'Manage Classes', instructor_classes_path, class: 'btn btn-1 pull-right' %>
+        <hr>
+        <% if @sections.empty? %>
+          <h3 class="empty text-center"> You don't have any classes yet! </h3>
+        <% else %>
+          <% @sections.each do |section| %>
+            <h4 class="button-align"><%= section.dept %>-<%= section.number %> <%= section.name %></h4>
+            <%= link_to 'Create Group', new_class_group_path(section), class: 'btn btn-2 pull-right' %>
+            <%= link_to 'Manage Groups', class_groups_path(section), class: 'btn btn-1 pull-right' %>
+            <% @groups = Group.where section_id: section.id %>
+            <%= render 'groups', group: @group, section: section %>
+            <hr>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>

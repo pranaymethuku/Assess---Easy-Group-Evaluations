@@ -1,0 +1,209 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+body {
+  width: 100%;
+  margin: 0%;
+  padding-bottom: 5vh;
+}
+
+/* Home Page styling */
+
+.home p {
+  color: #919191;
+  line-height: 2;
+}
+
+.home span.glyphicon.large {
+  font-size: 10em;
+  padding-top: 20%;
+}
+
+.home span.glyphicon.medium {
+  font-size: 5em;
+  padding: 10% 0;
+}
+
+/* Jumbotron styling */
+.jumbotron {
+  background-color: #1abc9c;
+  color: #024547;
+}
+
+.jumbotron h3 {
+  font-weight: 300;
+}
+
+.jumbotron span.user {
+  font-weight: 400;
+  color: #ffffff;
+}
+
+.jumbotron .btn {
+  background-color: #ffffff;
+  color: #024547;
+}
+
+.jumbotron .btn {
+  border: 1px solid #11937a;
+}
+
+.jumbotron .btn:hover, .jumbotron .btn:active {
+  text-decoration: underline;
+}
+
+.jumbotron .btn:active {
+  background-color: #024547;
+  color: #ffffff;
+}
+
+.dashboard_content h3 {
+  color: #919191;
+}
+
+.dashboard_content h3.empty {
+  font-weight: 200;
+}
+
+.dashboard_content h4.group {
+  display: inline;
+}
+
+.dashboard_content h5.group {
+  font-weight: 600;
+}
+
+.dashboard_content p.group_name {
+  color: #1abc9c;
+  font-weight: 400;
+  font-size: 1.2em;
+}
+
+.dashboard_content .btn-1, .dashboard_content .btn-2 {
+  margin-left: 10px;
+}
+
+.dashboard_content .btn-1:hover, .dashboard_content .btn-2:hover {
+  text-decoration: underline;
+}
+
+.dashboard_content .btn-1 {
+  background-color: #ffffff;
+  border: 1px solid #1abc9c;
+  color: #919191;
+}
+
+.dashboard_content .btn-1:hover {
+  color: #024547;
+}
+
+.dashboard_content .btn-2 {
+  background-color: #1abc9c;
+  border: 1px solid #11937a;
+  color: #024547;
+}
+
+.dashboard_content .btn-2:hover {
+  color: #ffffff;
+}
+
+.dashboard_content .btn-3 {
+  background-color: #ededed;
+  border: 1px solid #e0e0e0;
+  color: #666666;
+  padding: 5px;
+  font-size: 10px;
+}
+
+.dashboard_content .btn-3:hover {
+  color: #1abc9c;
+  background: none;
+  border: 1px solid #1abc9c;
+}
+
+.dashboard_content h3.button-align, .dashboard_content h4.button-align {
+  display: inline;
+}
+
+.dashboard_content ul {
+  margin-top: 1.5em;
+  list-style: none;
+  margin: 0;
+}
+
+.dashboard_content li {
+  margin: 1em 0;
+}
+
+h5 a.group {
+  color: #1abc9c;
+  text-decoration: underline;
+}
+
+h5 a.group:hover {
+  text-decoration: none;
+}
+
+a {
+  color: #919191
+}
+
+a:hover {
+  color: #1abc9c;
+  background: none;
+}
+
+.navbar {
+  margin-bottom: 0;
+}
+
+.flashes {
+  margin-top: 20px;
+}
+
+.evaluation {
+  margin-top: 5vh;
+}
+
+.evaluation p {
+  line-height: 1.5;
+  padding: 10px 20px;
+}
+
+.evaluation h5 {
+  color: #4f4f4f;
+  font-weight: 600;
+}
+
+.evaluation h1, .evaluation h3 {
+  display: inline;
+}
+
+.evaluation textarea#evaluation_managers {
+  height: 8em;
+}
+
+.evaluation textarea#evaluation_contribution {
+  height: 12em;
+}
+
+.evaluation textarea#evaluation_team_contribution {
+  height: 15em;
+}
+
+textarea {
+  resize: none;
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Assess</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+	<nav class="navbar navbar-default">
+	  <div class="container">
+		<div class="navbar-header">
+		  <%= link_to 'Assess', root_path, class: 'navbar-brand' %>
+		</div>
+		<div id="navbar">
+		  <ul class="nav navbar-nav">
+			<li><%= link_to 'Home', root_path %></li>
+		  </ul>
+		  <ul class="nav navbar-nav pull-right">
+			<% if student_signed_in? %>
+				<li><%= link_to 'Dashboard', student_dashboard_path %></li>
+				<li><%= link_to 'Log out', destroy_student_session_path, method: :delete %></li>
+      <% elsif instructor_signed_in? %>
+				<li><%= link_to 'Dashboard', instructor_dashboard_path %></li>
+				<li><%= link_to 'Log out', destroy_instructor_session_path, method: :delete %></li>
+			<% else %>
+				<li class="dropdown">
+					<a class="dropdown-toggle" id="log-in" data-toggle="dropdown" href="#">Log In
+					<span class="caret"></span></a>
+					<ul class="dropdown-menu" aria-labelledby="dLabel">
+						<li><%= link_to 'As Student', new_student_session_path %></li>
+						<li><%= link_to 'As Instructor', new_instructor_session_path %></li>
+					</ul>
+				</li>
+				<li class="dropdown">
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#">Sign up
+					<span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><%= link_to 'As Student', new_student_registration_path %></li>
+						<li><%= link_to 'As Instructor', new_instructor_registration_path %></li>
+					</ul>
+				</li>
+			<% end %>
+		  </ul>
+		</div>
+	  </div>
+	</nav>
+
+  <% if !flash.empty? %>
+  	<div class="container flashes">
+  	  <% flash.each do |key, value| %>
+  	  <div class="alert alert-<%= key %>">
+  		<%= value %>
+  	  </div>
+  	  <% end %>
+  	</div>
+  <% end %>
+
+	<%= yield :top_content %>
+
+  <div class="container">
+    <%= yield %>
+  </div>
+
+  </body>
+</html>

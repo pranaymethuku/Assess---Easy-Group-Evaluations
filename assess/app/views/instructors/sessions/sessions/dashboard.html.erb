@@ -1,0 +1,10 @@
+<% content_for :top_content do %>
+<div class="jumbotron text-center">
+  <div class="container-fluid">
+    <h3>Dashboard for: <span class="user"><%= @instructor.first_name.capitalize %> <%= @instructor.last_name.capitalize %></span></h3>
+    <h5>Instructor Account</h5>
+    <%= link_to 'edit', edit_instructor_registration_path, class: 'btn btn-success' %>
+  </div>
+</div>
+<%= render 'sections', section: @section %>
+<% end %>

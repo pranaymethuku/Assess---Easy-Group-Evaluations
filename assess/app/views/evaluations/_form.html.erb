@@ -1,0 +1,83 @@
+<% group = Group.find params[:group_id]%>
+<%= form_with(url: create_student_evaluation_path(group), local: true) do |form| %>
+  <% if evaluation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(evaluation.errors.count, "error") %> prohibited this evaluation from being saved:</h2>
+
+      <ul>
+      <% evaluation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <div class="field">
+      <%= form.label :date_completed, "Date completed" %>
+      <%= form.date_select :date_completed, class: 'form-control', id: :evaluation_date_completed %>
+    </div>
+
+    <div class="field">
+      <%= form.label :purpose, "What project is this peer evaluation for?" %>
+      <%= form.text_field :purpose, class: 'form-control', id: :evaluation_purpose %>
+    </div>
+
+    <div class="field">
+      <%= form.label :contribution, "Write a detailed description of your specific contributions
+       to the final submissions of this project. Do not write an essay." %>
+      <%= form.text_area :contribution, class: 'form-control', id: :evaluation_contribution %>
+    </div>
+
+    <%
+      students = group.students
+      team_contribution_value = ""
+      students.each do |student|
+        team_contribution_value += student.first_name + " " + student.last_name + ": \n"
+      end
+    %>
+
+    <div class="field">
+      <%= form.label :team_contribution, "For each of your team members, write the % contribution
+      of the team member to the FINAL submission only. In addition to that, also write the key
+      contributions of that team member to the FINAL submission only." %>
+      <%= form.text_area :team_contribution, value: team_contribution_value, class: 'form-control', id: :evaluation_team_contribution %>
+    </div>
+
+    <%
+      managers_default_value = ["Overall project", "Implementation", "Documentation", "Testing"].join(": \n") + ": "
+    %>
+
+    <div class="field">
+      <%= form.label :managers, "Who were the project managers (overall, implementation, testing, and documentation)
+      for this project?" %>
+      <%= form.text_area :managers, value: managers_default_value, class: 'form-control', id: :evaluation_managers %>
+    </div>
+
+    <div class="field">
+      <%= form.label :manager_performance, "Write anything you feel I should know in regards to the performance of
+      the project managers (positive or negative)." %>
+      <%= form.text_area :manager_performance, class: 'form-control', id: :evaluation_manager_performance %>
+    </div>
+
+    <div class="field">
+      <%= form.label :outstanding_participation, "Which group members do you feel had participation that was
+      outstanding in this project?" %>
+      <%= form.text_area :outstanding_participation, class: 'form-control', id: :evaluation_outstanding_participation %>
+    </div>
+
+    <div class="field">
+      <%= form.label :poor_participation, "Which group members do you feel had participation that was poor
+      in this project? Explain why." %>
+      <%= form.text_area :poor_participation, class: 'form-control', id: :evaluation_poor_participation %>
+    </div>
+
+    <div class="field">
+      <%= form.label :other, "Use this space to write any other feedback you would like me to know about.
+      You may leave this blank if  you like." %>
+      <%= form.text_area :other, class: 'form-control', id: :evaluation_other%>
+    </div>
+
+    <div class="actions">
+      <%= form.submit "Turn in" %>
+    </div>
+<% end %>

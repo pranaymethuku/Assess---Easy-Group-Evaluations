@@ -1,0 +1,27 @@
+<h1>Classes</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Department</th>
+      <th>Number</th>
+      <th>Name</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sections.each do |section| %>
+      <tr>
+        <td><%= section.dept %></td>
+        <td><%= section.number %></td>
+        <td><%= section.name %></td>
+        <td><%= link_to 'Show Groups', class_groups_path(section) %></td>
+        <td><%= link_to 'Delete', instructor_class_path(section), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Create New Class', new_instructor_class_path %>

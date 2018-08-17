@@ -1,0 +1,17 @@
+<% if @sections.length > 0 %>
+  <% @sections.each do |section| %>
+    <h4><%= section.dept %>-<%= section.number %> <%= section.name %></h4>
+    <% instr = Instructor.find_by id: section.instructor_id %>
+    <h5>Instructor: <%= instr.first_name.capitalize %> <%= instr.last_name %></h5>
+    <% office = instr.office %>
+    <% if office %>
+      <h6>Office: <%= office %></h6>
+    <% else %>
+      <h6>Office: N/A</h6>
+    <% end %>
+    <% @groups = current_student.groups.where section_id: section.id %>
+    <%= render 'groups', group: @groups %>
+  <% end %>
+<% else %>
+  <h3 class="empty text-center"> You aren't enrolled in any classes! </h4>
+<% end %>

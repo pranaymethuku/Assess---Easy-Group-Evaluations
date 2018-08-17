@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Evaluations</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Date completed</th>
+      <th>Purpose</th>
+      <% if current_instructor %>
+        <th>Student</th>
+      <% end %>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @evaluations.each do |evaluation| %>
+      <% student = Student.find evaluation.student_id %>
+      <tr>
+        <td><%= evaluation.date_completed %></td>
+        <td><%= evaluation.purpose %></td>
+        <% if current_instructor %>
+          <td><%= student.first_name + " " + student.last_name %></td>
+        <% end %>
+        <td><%= link_to 'Show', student_evaluation_path(evaluation) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

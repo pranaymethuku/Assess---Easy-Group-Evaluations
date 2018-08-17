@@ -1,0 +1,60 @@
+<% content_for :top_content do %>
+<div class="jumbotron">
+  <div class="container text-center">
+	<h1>Welcome!</h1><br>
+	<p>Register to get started</p>
+	<p>
+    <div class="btn-group">
+  	  <%= link_to 'Instructor', new_instructor_registration_path,
+  		  class: 'btn btn-primary btn-lg' %>
+        <%= link_to 'Student', new_student_registration_path,
+          class: 'btn btn-primary btn-lg' %>
+    </div>
+	</p>
+  </div>
+</div>
+
+<div class="container home">
+  <div class="row">
+    <div class="col-md-8">
+      <h3>What is Assess?</h3>
+      <br>
+      <p>Assess is an easy solution for group peer evaluations, that makes creating classes,
+        groups, and evaluations simple. Instructors can freely create or remove classes, and form
+        groups within those classes. Students can be added by the e-mails they signed up with.
+        Instructors can easily add & remove students from classes and groups. Peer Evaluations are simple to create
+        and will automatically generate a customized evaluation for each member of a group. Assess speeds
+        up the process of submitting evaluations by going digital, and saves time & paper.
+        Switch to Assess today to see the benefits of our streamlined process!
+      </p>
+      <br>
+    </div>
+    <div class="col-md-4 text-center">
+      <span class="glyphicon large glyphicon-list-alt"></span>
+    </div>
+  </div>
+  <hr>
+</div>
+
+
+<div class="container home text-center">
+  <h3>Features</h3><br>
+  <div class="row">
+    <div class="col-md-4">
+      <span class="glyphicon medium glyphicon-cog"></span>
+      <p>Instructors can easily create classes & form groups. Students can be added by the
+      e-mail address that they registered with.</p>
+    </div>
+    <div class="col-md-4">
+      <span class="glyphicon medium glyphicon-pencil"></span>
+      <p>Filling out evaluations is simple & easy. Our forms cut down on time spent writing evaluations,
+      which lets you spend more time on what's important - writing code.</p>
+    </div>
+    <div class="col-md-4">
+      <span class="glyphicon medium glyphicon-random"></span>
+      <p>Assess supports multiple classes & groups within classes for students. Students can easily
+      be added to and removed from groups.</p>
+    </div>
+  </div>
+</div>
+<% end %>

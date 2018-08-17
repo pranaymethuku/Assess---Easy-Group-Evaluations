@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= @group.name %> - Members</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @students.each do |student| %>
+      <tr>
+        <td><%= student.first_name.capitalize %></td>
+        <td><%= student.last_name.capitalize %></td>
+        <td><%= student.email %></td>
+        <td><%= link_to 'Remove', remove_group_student_path(@group, student), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Add Students', add_group_students_path(@group) %>
